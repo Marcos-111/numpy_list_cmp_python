@@ -17,6 +17,7 @@ __version__ = "1.2"
 
 import numpy as np
 import math
+import random
 
 
 def ej1():
@@ -25,8 +26,8 @@ def ej1():
     # Realizar una funcion lambda que eleve al cuadrado
     # el número pasado como parámetro
 
-    # potencia_2 = lambda x:......
-    # pot_3 = potencia_2(3)
+    potencia_2 = lambda x: 2**x
+    pot_3 = potencia_2(3)
 
     # 2)
     # Utilice la función map para mapear una lambda expression
@@ -40,7 +41,8 @@ def ej1():
     # List de string
     numeros = [1, -5, 4, 3]
 
-    # numeros_potencia = list(map....)
+    numeros_potencia = list(map(potencia_2, numeros))
+    print(numeros_potencia)
 
 
 def ej2():
@@ -49,7 +51,8 @@ def ej2():
     # Realizar una funcion lambda que retorne el tamaño
     # (len) de un string pasado como parámetro
 
-    # len_string = lambda......
+    len_string = lambda x: len(x)
+    print(len_string("marc"))
 
     # 2)
     # List de string
@@ -63,7 +66,8 @@ def ej2():
     # Nota: realizar la lambda expression "in line"
     # Copiar la lambda creada en el paso anterior dentro del map
 
-    # palabras_len = list(map....)
+    palabras_len = list(map(len_string, palabras))
+    print(palabras_len)
 
 
 def ej3():
@@ -73,7 +77,8 @@ def ej3():
     # esta lista generada deberá tener un tamaño de 11
     # números, conteniendo del 0 al 10 inclusive
 
-    # lista_0_10 = [......]
+    lista_0_10 = [x for x in range(11)]
+    print(lista_0_10)
 
     # 2)
     # Generar una lista a partir de comprensión de listas,
@@ -83,15 +88,17 @@ def ej3():
     # [0 5 10 15 20 25 30 35 40 45 50]
     # Utilizar comprensión de listas para generar essa lista
 
-    # tabla_5 = [......]
+    tabla_5 = [5*x for x in range(11)]
+    print(tabla_5)
 
     # 3)
-    # Generar una lista a partir de comprensión de listas,
+    # Generar una lista a pdartir de comprensión de listas,
     # esta lista generada deberá contener 10 números aleatorios,
     # estos números deberán estar entre el rango 1 al 30 representando
     # números posibles de un mes (los números pueden repetirse)
 
-    # dias_mes = [.....]
+    dias_mes = [random.randint(1, 30) for x in range(10)]
+    print(dias_mes)
 
     pass
 
@@ -108,8 +115,10 @@ def ej4():
     # reemplazar dicho str "no numérico" por 0
     list_numeros_str = ['5', '-2', '3', '', '7', 'NaN']
 
-    # lista_numeros_int = [.....]
+    lista_numeros_int = [int(x) if x.isdigit() is True else 0 for x in list_numeros_str]
+    print(lista_numeros_int)
 
+    #Aqui no se porque el -2 no se toma como digito
 
 def ej5():
     # Utilizar comprensión de listas para filtrar
@@ -127,7 +136,8 @@ def ej5():
     # De la lista resultante informar cuantas personas/personal
     # comprendido en dicho rango pasó por ese molinete
 
-    # personal_1_10 = [.....]
+    personal_1_10 = [x for x in accesos if x in range(11)]
+    print(len(personal_1_10))
 
     # 2)
     # Generar una lista por comprensión de la listas "accesos"
@@ -139,7 +149,8 @@ def ej5():
     # TIP: Utilizar el operador "in" para chequear si un ID de accesos está
     # dentro de "id_validos"
 
-    # personal_valido = [.....]
+    personal_valido = [x for x in accesos if x in id_validos]
+    print(personal_valido)
     pass
 
 
@@ -148,16 +159,20 @@ def ej6():
     # Arme un array con el método np.arange
     # el cual este acotado entre 0 y 1000
     # De dicho array calcular las siguientes operaciones:
+    top = 1000
+    x = np.arange(top)
 
     # 1)
     # Calcular la suma de todos los elementos en el array
 
-    # suma = ....
+    suma = np.sum(x)
+    print(suma)
 
     # 2)
     # Calcular la diferencia de todos los elementos en el array
 
-    # diferencia = ....
+    diferencia = np.diff(x) #Aqui no supe como hacer la diferencia
+   
 
     # 3)
     # Utilizar la funcion "where" para reemplazar los números múltiplos
@@ -166,15 +181,16 @@ def ej6():
     # múltiplo de "5"? Ese operador ya lo conoce y lo viene utilizando
     # bastante para saber si un número es múltiplo de "2"
 
-    # nuevo_array = ....
+    nuevo_array = np.where(x % 5, x, 0) #Aqui pensaba que iba primero el 0 y despues la x
+    print(nuevo_array)
     pass
 
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
-    # ej2()
-    # ej3()
-    # ej4()
-    # ej5()
-    # ej6()
+    #ej1()
+    #ej2()
+    #ej3()
+    #ej4()
+    #ej5()
+    ej6()

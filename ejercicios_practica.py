@@ -16,6 +16,8 @@ __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
 import numpy as np
+import random
+import math
 
 
 def ej1():
@@ -40,7 +42,20 @@ def ej1():
         condicion "a"
 
     Realizar este proceso iterativo hasta cumplir el objetivo
+
     '''
+
+    while True:
+
+        x = [random.randint(1, 10) for x in range(3)]
+        if sum(x) <= 21:
+            print(x, sum(x))
+            
+            break
+        else:
+            continue
+
+
 
 
 def ej2():
@@ -63,6 +78,9 @@ def ej2():
 
     # Se espera obtener:
     # ['Tamara', 'Juan', 'Alberto'......]
+    nombres_padron = [x for x in nombres if(x[0]) in padron]
+    print(nombres_padron)
+
 
 
 def ej3():
@@ -80,16 +98,17 @@ def ej3():
     # NO utilizar comprensión de listas, solo utilice la
     # funcion de numpy "np.sin"
 
-    # y_nump =
+    y_nump = np.sin(x)
 
     # Conjunto de valores "X" en una lista
-    x = list(np.arange(0, 2*np.pi, 0.1))
+    x_ = list(np.arange(0, 2*np.pi, 0.1))
 
     # Utilizar comprensión de listas para obtener la lista
     # "y_list" que tenga todos los valores obtenidos como resultado
     # de someter cada valor de "X" a la función math.sin
 
-    # y_list =
+    y_list = [math.sin(x) for x in x_]
+    print(y_list)
 
     # Este es un ejemplo práctico de cuando es útil usar numpy,
     # basicamente siempre que deseen utilizar una función matemática
@@ -112,6 +131,10 @@ def ej4():
                 }
 
     lista_compra_id = [556070, 905045, 42135, 5674, 704060, 1264, 42135, 3654]
+
+    lista_compra_productos = [producto.get(x) for x in lista_compra_id]
+    print(lista_compra_productos)
+    
 
     # Crear una nueva lista "lista_compra_productos" que transforme la lista
     # de realizada por "ID" de producto en lista por "nombre" producto
@@ -147,12 +170,32 @@ def ej5():
     dos jugadores y compitan para ver quien sacá la suma de números
     más cercanos a 21 sin pasarse!
     '''
+    nros_j1 = []
+    nros_j2 = []
+    
+    while True:
 
+        j_1 = [random.randint(1, 10) for x in range(2)]
+      
+        continuar = int(input("1 para continuar 0 para terminar:\n"))
+        nros_j1 += j_1
+        print(nros_j1, sum(nros_j1))
+        
+        if continuar == 0 or sum(nros_j1) > 21:
+            break   
+
+        else:
+            continue
+    # No supe como hacer para dos jugadores
+
+    
+
+    
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
-    # ej1()
-    # ej2()
-    # ej3()
-    # ej4()
-    # ej5()
+    #ej1()
+    #ej2()
+    #ej3()
+    #ej4()
+    ej5()

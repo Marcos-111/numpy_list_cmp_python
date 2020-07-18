@@ -135,6 +135,10 @@ def ej4():
     lista_compra_productos = [producto.get(x) for x in lista_compra_id]
     print(lista_compra_productos)
     
+    # Inovetip: Por defecto, el método .get() devuelve None, 
+    # si el valor no se encuentra, dentro del diccionario. El enunciado pide que
+    # lo remplaces por "NaN", para ello podes aprovechar un parametro de .get()
+    # así: producto.get(x,"NaN")
 
     # Crear una nueva lista "lista_compra_productos" que transforme la lista
     # de realizada por "ID" de producto en lista por "nombre" producto
@@ -187,6 +191,14 @@ def ej5():
         else:
             continue
     # No supe como hacer para dos jugadores
+    
+    # Inovetip: Podes hacerlo por turnos, primero juega J_1 y guardas su 
+    # resultado, luego juega j_2 y comparas ambos resultados.
+    # fijate que de esa manera el juego se repite 2 veces, podes hacerlo dentro
+    # de un loop o encapsularlo en una función para que puedas llamarla cuantas
+    # veces quieras, depende de vos! Tambien podes hacer que la impresión por 
+    # consola sea un poco mas expresiva así quien viene de afuera sabe de que
+    # se trata el programa :D
 
     
 

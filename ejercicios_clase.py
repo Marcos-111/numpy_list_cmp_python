@@ -43,6 +43,8 @@ def ej1():
 
     numeros_potencia = list(map(potencia_2, numeros))
     print(numeros_potencia)
+    # Inovetip: En esta parte tendrías que reemplazar potencia_2 
+    # por una nueva lambda inline.
 
 
 def ej2():
@@ -68,6 +70,8 @@ def ej2():
 
     palabras_len = list(map(len_string, palabras))
     print(palabras_len)
+    # Inovetip: En esta parte tendrías que reemplazar len_string 
+    # por una nueva lambda inline, aunque haga lo mismo :P
 
 
 def ej3():
@@ -119,6 +123,8 @@ def ej4():
     print(lista_numeros_int)
 
     #Aqui no se porque el -2 no se toma como digito
+    # Inovetip: el casteo a int no soporta el caracter "-" tenes que usar 
+    # el metodo lstrip('-') como vimos en clase: x.lstrip('-').isdigit() == True
 
 def ej5():
     # Utilizar comprensión de listas para filtrar
@@ -161,6 +167,7 @@ def ej6():
     # De dicho array calcular las siguientes operaciones:
     top = 1000
     x = np.arange(top)
+    # Inovetip: aquí debería ser top = 1001, valores entre 0 y 1000 son 1001 :D 
 
     # 1)
     # Calcular la suma de todos los elementos en el array
@@ -172,7 +179,7 @@ def ej6():
     # Calcular la diferencia de todos los elementos en el array
 
     diferencia = np.diff(x) #Aqui no supe como hacer la diferencia
-   
+    # Inovetip: está bien así :D
 
     # 3)
     # Utilizar la funcion "where" para reemplazar los números múltiplos
@@ -183,6 +190,9 @@ def ej6():
 
     nuevo_array = np.where(x % 5, x, 0) #Aqui pensaba que iba primero el 0 y despues la x
     print(nuevo_array)
+    # Inovetip: Si, si utilizarías en el consicional (x%5) == 0, podes usarlo de esa manera.
+    # En el foro del campus se agregó unas post sobre ello :D
+    
     pass
 
 
